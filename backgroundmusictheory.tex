@@ -1,0 +1,374 @@
+\documentclass[master.tex]{subfiles}
+
+
+\newcommand{\setmeterb}[2]{\ensuremath{%
+  \vcenter{\offinterlineskip
+    \halign{\hfil##\hfil\cr
+            $\scriptstyle#1$\cr
+            \noalign{\vskip1pt}
+            $\scriptstyle#2$\cr}
+  }}%chen2001creating
+}
+\begin{document}
+
+
+
+
+Music theory is the based on the analysis of music. This typically reflects an analysis of different fundamental aspects of music. These include melody, harmony, rhythm and form. The following sections aim to introduce these concepts. Though music theory has developed to encompass many different forms of music, for the purpose of this research, the concepts introduced will be those that are in relation to the traditions of Western music. 
+\section{Pitch}
+Pitch is a perceived property of sound directly related to frequency. It is the quality of sounds that allows us to distinguish between higher and lower sounds. When a string vibrates at a frequency of 440hz this is referred to as the pitch \rmfamilyA. Though pitch is related to frequency, human perception of pitch depends not linearly on frequency but rather logarithmically. Therefore, the difference between 220hz and 440hz sounds is perceived as the same difference between 130.81hz and 261.63hz. Such a difference between pitches is called an \emph{interval}. In particular, the intervals just described are denoted as an \emph{octave}. Octaves are special intervals as they can be used to partition pitches into equivalence classes. The following demonstrates how to do this. Let $\sim$ be a binary relation such that:
+\begin{equation}
+    a \sim b \equiv \frac{a}{b} = 2^{k} \quad \textnormal{for some} \quad k \in \mathbb{Z}
+\end{equation}
+Clearly, $\sim$ is an equivalence relation for the space of frequencies. Equivalence classes thus represent similar sounding tones and are therefore denoted by the same letter. When one refers to {A}, one is actually referring to a collection of different pitches ${[}\textnormal{{A}}{]} = \{\dots, 55, 110, 220, 440, 880, 1760 \ldots\}$. These equivalence classes are typically called \emph{pitch classes}. Although the space of possible frequencies is a continuum of different values, typical {Western} music theory only deals with a finite subset of frequencies represented by 12 different pitch classes. The pitch classes are referred to as {A, A\#, B, C, C\#, D, D\#, E, F, F\#, G, G\#}. Since pitches are on a logarithmic scale, they can be transformed into a linear scale with the following function:
+\begin{equation}
+    M(x) = 69 + 12\log_2\frac{x}{440}
+\end{equation}
+$M(440) = 69$ and $M(220) = 57$ (seeTable \ref{freqtable}). In this scale, the difference between two adjacent pitches is called a \emph{semitone}. In order to distinguish between different tones of the same pitch class, i.e, {A} at 440hz and {A} at 220hz, we use the \emph{Scientific Pitch Notation}. In this notation we use a number suffix to represent whether a tone is higher or lower, see the table \ref{freqtable}.
+
+The value of a pitch can be altered  by using \emph{accidentals}. These are shown by the symbols $\flat$ and $\sharp$. Writing $\flat$ next to a pitch lowers the pitch by a semi-tone, whereas $\sharp$ raises it by a semitone. 
+\begin{table}[]
+\centering
+\caption{Relations between Pitch, Pitch class and Frequency}
+\label{freqtable}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{c|c|c|c|c|c}
+
+\hline
+\multicolumn{1}{l|}{\textbf{Pitch}} & \multicolumn{1}{l|}{\textbf{Pitch Class}} & \multicolumn{1}{l|}{\textbf{Freq (hz)}} & \multicolumn{1}{l|}{\textbf{$M(x)$}} & \multicolumn{1}{l|}{\small\textbf{Freq. diff.}} & \multicolumn{1}{l}{\small\textbf{$\log_2 (\textnormal{\textbf{Freq. diff.}})$}} \\ \hline
+\textbf{A3}                         & \textbf{A}                                & 220                                     & 57                                   & -                                              & -                                                                   \\
+\textbf{A\#3}                       & \textbf{A\#}                              & 233.08                                  & 58                                   & 13.08                                          & $\frac{1}{12}$                                                      \\
+\textbf{B3}                         & \textbf{B}                                & 246.94                                  & 59                                   & 13.86                                          & $\frac{1}{12}$                                                      \\
+\textbf{C4}                         & \textbf{C}                                & 261.63                                  & 60                                   & 14.69                                          & $\frac{1}{12}$                                                      \\
+\textbf{C\#4}                       & \textbf{C\#}                              & 277.18                                  & 61                                   & 15.55                                          & $\frac{1}{12}$                                                      \\
+\textbf{D4}                         & \textbf{D}                                & 293.66                                  & 62                                   & 16.48                                          & $\frac{1}{12}$                                                      \\
+\textbf{D\#4}                       & \textbf{D\#}                              & 311.13                                  & 63                                   & 17.47                                          & $\frac{1}{12}$                                                      \\
+\textbf{E4}                         & \textbf{E}                                & 329.63                                  & 64                                   & 18.50                                          & $\frac{1}{12}$                                                      \\
+\textbf{F4}                         & \textbf{F}                                & 349.23                                  & 65                                   & 19.60                                          & $\frac{1}{12}$                                                      \\
+\textbf{F\#4}                       & \textbf{F\#}                              & 369.99                                  & 66                                   & 20.76                                          & $\frac{1}{12}$                                                      \\
+\textbf{G4}                         & \textbf{G\#}                              & 392.00                                  & 67                                   & 22.01                                          & $\frac{1}{12}$                                                      \\
+\textbf{G\#4}                       & \textbf{G\#}                              & 415.00                                  & 68                                   & 23.00                                          & $\frac{1}{12}$                                                      \\
+\textbf{A4}                         & \textbf{A}                                & 440.00                                  & 69                                   & 24.00                                          & $\frac{1}{12}$                                                      \\ \hline
+\end{tabular}
+\end{table}
+
+%Staff notation provides a way of representing music visually. Each line and space represents a different pitch. The image \ref{notation} shows some pitches and their locations on the staff.    
+%Insert picture for notation here
+
+\section{Scales}
+Let the set of all pitch classes be given by $\Omega = $ \{{A, A\#, B, C, C\#, D, D\#, E, F, F\#, G, G\#}\}. A \emph{scale} is any non-empty ordered subset $S \subseteq \Omega$. The scale $S = \Omega$ is called the \emph{chromatic} scale. Scales are typically used to represent the types of pitches used in a piece of music. Although a musical piece may use one scale, one can use other pitches through the use of accidentals mentioned above. 
+
+Of great importance to early Western music are the \emph{Diatonic} scales. These are scales which consists of 7 different pitches and can be split into the \emph{major} and \emph{minor} scales. For each of the pitch classes, there is a distinct diatonic scale defined which uses that pitch class as its starting point, also called the \emph{tonic}. 
+
+\begin{table}[]
+\centering
+\caption{Scale Degrees for the C major key}
+\label{scaledegrees}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|l|}
+\hline
+\textbf{Pitch} & \multicolumn{2}{c|}{\textbf{Scale Degree}} \\ \hline
+C              & Tonic                  & $\hat{1}$           \\
+D              & Supertonic             & $\hat{2}$           \\
+E              & Mediant                & $\hat{3}$           \\
+F              & Sub-dominant           & $\hat{4}$           \\
+G              & Dominant               & $\hat{5}$           \\
+A              & Sub-mediant            & $\hat{6}$           \\
+B              & Leading note           & $\hat{7}$           \\ \hline
+\end{tabular}
+\end{table}
+
+An invariant feature among all different diatonic scales are the amount of semi-tones - or intervals - between consecutive pitches. For example, the diatonic {C} major scale is given by the pitches \{{C, D, E, F, G, A, B}\} while the {G} major scale is given by \{{G, A, B, C, D, E, F\#}\}. Examining these scales, one can see that the number of semi-tones between consecutive pitches are \{2, 2, 1, 2, 2, 2, 1\} where the final semi-tone is the transition from the final pitch to the starting note, one octave up. The interval differences for the diatonic minor scales are given by \{2, 1, 2, 2, 1, 2, 2, 2\}. Using these differences one can see that the {A} minor scale is given by \{{A, B, C, D, E, F, G}\}. Since {C} major and {A} minor share the same pitches, {A} minor is called the \emph{relative minor} of {C} major. Similarly, {C} major is the \emph{relative major} of {A} minor. 
+
+Within these diatonic scales, each pitch is given a particular name referred to as the \emph{scale degree}. These scale degrees reflect the different qualities and functions of the pitches within a certain scale. Table \ref{scaledegrees} shows the scale degrees corresponding to the pitches in the C major scale. The tonic, sub-dominant and dominant are particularly important scale degrees and their functions will be discussed in more detail later. 
+
+\section{Intervals}
+As discussed above, intervals measure the distance between two pitches. While intervals can be measured using the semi-tone distance between pitches, it is clearer to refer to refer to intervals relative to their positions in a specific scale. The following shows the intervals relative to C in the C major scale. 
+\begin{itemize}
+    \item C $\rightarrow$ D, 2 semitones, \textbf{major second}
+    \item C $\rightarrow$ E, 4 semitones, \textbf{major third}
+    \item C $\rightarrow$ F, 5 semitones, \textbf{perfect fourth}
+    \item C $\rightarrow$ G, 7 semitones, \textbf{perfect fifth}
+    \item C $\rightarrow$ A, 9 semitones, \textbf{major sixth}
+    \item C $\rightarrow$ B, 11 semitones, \textbf{major seventh}
+    \item C $\rightarrow$ C, 12 semitones, \textbf{octave}
+\end{itemize}
+Other intervals are possible. Minor intervals are those which are a semi-tone less then major intervals, such as the minor third C $\rightarrow$ E$\flat$. Augmented intervals raise the value of perfect intervals by one semitone while diminished intervals lower the value by one semitone.
+
+\section{Chords}
+A chord is a combination of 3 or more pitches sounding simultaneously. The most basic type of chord is the \emph{triad}, composed of 3 pitches. Each triad is built off a base pitch or \emph{root} and two intervals above the root. There are 4 different types of triads. 
+\begin{itemize}
+    \item \textbf{Major Triad} - root, major third and perfect fifth, e.g., a C maj. = (C, E, G). 
+    \item \textbf{Minor Triad} - root, minor third and perfect fifth, e.g., a C min. = (C, E$\flat$, G)
+    \item \textbf{Augmented Triad} - root, major third and augmented fifth, e.g., a C aug. = (C, E, G$\sharp$)
+    \item \textbf{Diminished Triad} - root, minor third and diminished fifth, e.g., a C dim = (C, E$\flat$, G$\flat$)
+\end{itemize} 
+Another type of chord are the seventh chords. These are essentially the same as the triads, except with added augmented or diminished seventh interval. 
+Chords do not strictly need to be played with the closest pitches, for example the C major key need not consist of the pitches (C4, E4 G4), but they can be (E2, G3, C4). The process of separating pitches over wider registers is called \emph{voicing}. Voicing corresponds to the act of assigning separate voices or instruments to different parts of a chord. 
+
+\section{Duration}
+Another important property of perceived sound, is that of duration. As the name implies, duration refers to the amount of time for which a particular sound persists. A pitch with a specified duration is referred to as a \emph{note}. In music, duration is measured in terms relative to the whole note \hspace{0.1cm} \wholeNote \hspace{0.2cm}which has a duration of 1 (see Table \ref{durations}). Lack of notes are represented in music using rests.
+
+\begin{table}[]
+\centering
+\caption{Durations of Notes and Rests}
+\label{durations}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{c|c|c|c}
+\hline
+\textbf{Symbol}   & \textbf{Name}     & \textbf{Duration} & \textbf{Equivalent Rest} \\ \hline
+\wholeNote        & whole note        & 1                 & \wholeNoteRest           \\
+\halfNote         & half note         & $\frac{1}{2}$     & \halfNoteRest            \\
+\quarterNote      & quarter note      & $\frac{1}{4}$     & \quaverRest              \\
+\eighthNote       & eighth note       & $\frac{1}{8}$     & \semiquaverRest          \\
+\sixteenthNote    & sixteenth note    & $\frac{1}{16}$    & \lilyGlyph{rests.5}    \\
+\thirtysecondNote & thirtysecond note & $\frac{1}{32}$    & \lilyGlyph{rests.6}    \\ \hline
+\end{tabular}
+\end{table}
+
+The length of notes can be extended through two principle ways. The first way is by use of the $\cdot$ operator. When placed next to a note, the dot operator increases the duration of that note by half its original duration. Thus \halfNoteDotted has a duration equal to $\frac{3}{4}$. Similarly the duration of \semiquaverDotted has a duration of $\frac{3}{32}$. The other way of increasing the duration of a note is by \emph{tying} them together. Tying notes has the effect of adding the duration all of tied notes together. For example the duration of \underarc{\halfNote \hspace{0.5cm}\eighthNote} is $\frac{1}{2} + \frac{1}{8} = \frac{5}{8}$. 
+Patterns of varying durations and rests give rise to the phenomenon known as \emph{rhythm}. 
+
+\section{Music Notation} 
+Music is typically represented using \emph{Staff Notation}. It provides an organizational method that allows music to be read from left to right. A Staff consists of 5 lines and 4 spaces. Each line and space corresponds to a different pitch. Clefs are used to assign specific values to each position. The treble clef \clefGInline \hspace{0.1cm}  assigns the value of G4 to the second line from the bottom, while the bass clef \clefFInline \hspace{0.1cm} assigns the value of F3 to fourth line from the top. Ledger lines are used to represent pitches that do not fit on the staff lines. See the following figures below (\ref{fig:subfig1}, \ref{fig:subfig2}). 
+
+\begin{figure}[h]
+\subfloat[Treble Clef Notes][Treble Clef]{
+
+\label{fig:subfig1}
+\begin{music}\nostartrule
+\parindent10mm
+\instrumentnumber{1}
+\setstaffs1{1}
+\startextract
+\Notes \zcharnote{-10}{A3}\wh a \en
+\Notes \zcharnote{-9}{B3}\wh b \en
+\Notes \zcharnote{-8}{C4} \wh c \en
+\Notes \zcharnote{-7}{D4} \wh d \en
+\Notes \zcharnote{-6}{E4} \wh e \en
+\Notes \zcharnote{-5}{F4} \wh f \en
+\Notes \zcharnote{-4}{\textbf{G4}} \wh g \en
+\Notes \zcharnote{-3}{A4} \wh h \en
+\Notes \zcharnote{+8}{B4} \wh i\en
+\Notes \zcharnote{+9}{C5} \wh j \en
+\Notes \zcharnote{+10}{D5} \wh k \en
+\Notes \zcharnote{+11}{E5} \wh l \en
+\Notes \zcharnote{+12}{F5} \wh m \en
+\Notes \zcharnote{+13}{G5} \wh n \en
+\Notes \zcharnote{+14}{A5} \wh o \en
+\zendextract
+\end{music}
+}
+
+%\begin{subfigure}
+%\caption{Bass Clef}
+\subfloat[Bass Clef Notes][Bass Clef]{
+\begin{music}\nostartrule
+\parindent10mm
+\instrumentnumber{1}
+\setstaffs1{1}
+\setclef1\bass
+\startextract
+\Notes \zcharnote{-10}{E2}\wh E \en
+\Notes \zcharnote{-9}{F2}\wh F \en
+\Notes \zcharnote{-8}{G2} \wh G \en
+\Notes \zcharnote{-7}{A2} \wh H \en
+\Notes \zcharnote{-6}{B2} \wh I \en
+\Notes \zcharnote{-5}{C3} \wh J \en
+\Notes \zcharnote{-4}{D3} \wh K \en
+\Notes \zcharnote{-3}{E3} \wh L \en
+\Notes \zcharnote{+8}{\textbf{F3}} \wh M\en
+\Notes \zcharnote{+9}{G3} \wh N \en
+\Notes \zcharnote{+10}{A3} \wh O \en
+\Notes \zcharnote{+11}{B3} \wh P \en
+\Notes \zcharnote{+12}{C4} \wh Q \en
+\Notes \zcharnote{+13}{D4} \wh R \en
+\Notes \zcharnote{+14}{E4} \wh S \en
+\zendextract
+\end{music}
+\label{fig:subfig2}
+}
+\caption{Staff notes with treble and bass clef}.
+\label{fig:globfig}
+\end{figure}
+
+Chords are represented by writing the notes of which it consists of on top of one another. Accidentals (\flat, \sharp) are used to denote other pitches then the ones shown in figures \ref{fig:subfig2} and \ref{fig:subfig1}. For an example of accidentals, see figure \ref{fig:chords}.
+ 
+\begin{figure}[h!]
+\caption{Examples of chords and accidentals in staff notation}
+
+\begin{music}\nostartrule
+\parindent10mm
+\instrumentnumber{1}
+\setstaffs1{1}
+\startextract
+\NOTEs \zcharnote{-7}{C min.}\zw{c_eg}\en
+\NOTEs \zcharnote{-7}{D maj.}\zw{d^fh} \en
+\NOTEs \zcharnote{-7}{F aug.}\zw{fh^j}  \en
+\NOTEs \zcharnote{-7}{E dim.}\zw{eg_i } \en
+\zendextract
+\end{music}
+\label{fig:chords}
+\end{figure}
+
+
+Vertical lines divide up the Staff into bars or measures. The length of these measures is determined by the two numbers next to the clefs. These two numbers represent a fraction that determine the length of the bar in terms of whole notes. These two numbers are called the \emph{meter} of a piece. Thus, if the meter is \lilyTimeSignature{4}{4}, then each bar lasts for the same duration as a whole note. It should be noted that, although there is a difference between similar meters such as \lilyTimeSignature{4}{4} and \lilyTimeSignature{2}{2}, such a discussion is beyond the scope of this chapter. Figure \ref{fig:mozart} shows an extract from a piece of music in \lilyTimeSignature{4}{4}. \\
+
+\begin{figure}[h!]
+\caption{First two bars of W.A. Mozart's \emph{Piano Sonata No. 16 in C Major}}
+\label{fig:mozart}
+\begin{music}
+\parindent10mm
+\instrumentnumber{1} % a single instrument
+\setname1{Piano} % whose name is Piano
+\setstaffs1{2} % with two staffs
+\generalmeter{\meterfrac44}% 4/4 meter chosen
+\nobarnumbers
+\startextract % starting real score
+\Notes \zcharnote{-7}{(2)} \ibu0f0\qb0{cge}\tbu0\qb0g| \zcharnote{-5}{(1)}\hl j\en
+\Notes\ibu0f0\qb0{cge}\tbu0\qb0g|\ql l\sk\ql n\en
+\xbar
+\Notes\ibu0f0\qb0{dgf}|\qlp i\en
+\notes \tbu0\qb0g|\zcharnote{+10}{(3)}\ibbl1j3\qb1j\tbl1\qb1k\en
+\Notes\ibu0f0\qb0{cge}\tbu0\qb0g|\hl j\en
+\zendextract % terminate excerpt
+\end{music}
+\end{figure}
+
+
+Inspecting figure \ref{fig:mozart} one can see that the two staffs are linked by use of vertical bar lines. This implies that the music contained in both bars is to be played simultaneously. The note at position (1) is the same as the standard \halfNote \hspace{0.2cm} although it is written upside down for aesthetic reasons. At (2) eighth notes \eighthNote \hspace{0.1cm} are linked together by use of a \emph{beam}. This is done to aid legibility of notes and to link together groups of notes that form a natural \emph{phrase}. 
+
+\section{Melody}
+
+A phrase or melody is a collection of successive notes that are that are perceived as a whole within a piece of music. Melodies are typically described by the intervals between successive notes as well as by its rhythm. A way of characterizing the overall structure of a melody is through its \emph{contour}. The contour of a melody refers to the movement of the melody as well as the proximity between consecutive notes. An \emph{ascending} melody is one in which pitches between consecutive notes is increasing, \emph{descending} when the pitches decrease and \emph{undulating} refers to when there is equal movement upwards and downwards. The proximity of a phrase can be described as either \emph{conjunct} or \emph{disjunct}. If a phrase is conjunct that means that intervals between notes are only seconds (major or minor, see the section on intervals) also called \emph{steps}. Conversely, disjunct means that that the interval between two consecutive notes is anything but a second, also called \emph{skips}.  
+
+In Western music, melodies are usually played within one specific scale. When analysing a melody, one also pays attention to the role of the various pitches within a particular scale according to their diatonic function. For example, the tonic of a scale is considered the tonal home and thus usually provides a good starting and ending point for a melody. The dominant of a scale usually represents an increase in tension which can be resolved by tending back towards the tonic. Typically, notes with a particular function are played on a beat to emphasize their role. Notes whose purpose are only transitional between these functional notes are called \emph{passing notes}. 
+
+\section{Harmony}
+Harmony refers to the quality of music that is percieved when multiple pitches or voices are sounding. Harmonic analysis is generally built on the analysis of chords through \emph{chord progressions} and \emph{cadences}. 
+
+A chord progression is a sequence of chords within a particular piece. These sequences are typically understood in terms of diatonic chords and triads. Diatonic triads are special triads that are built within a given diatonic scale (major or minor). For each scale degree, a different triad is built on it, using that pitch as it's root, the third pitch above the root in the scale as the middle pitch and the fifth pitch above the root as the top pitch. These triad are identified using roman numerals, corresponding to the scale degree of the root note. A capital roman numeral indicates that the triad is major, while a lower case one indicates that it is minor. A plus sign is used to indicate that the triad is an augmented one while a circle ($\degree$) indicates that it is diminished. 
+
+\begin{figure}[h]
+\subfloat[C Major Scale and Diatonic Chords][C major Scale]{
+\label{fig:subfig3}
+\begin{music}
+\parindent10mm
+\nobarnumbers
+\instrumentnumber{1}
+\setstaffs1{1}
+\startextract
+\NOtes \zcharnote{-7}{$\hat{1}$}\wh c \en
+\NOtes \zcharnote{-7}{$\hat{2}$}\wh d \en
+\NOtes \zcharnote{-7}{$\hat{3}$}\wh e \en
+\NOtes \zcharnote{-7}{$\hat{4}$}\wh f \en
+\NOtes \zcharnote{-7}{$\hat{5}$}\wh g \en
+\NOtes \zcharnote{-7}{$\hat{6}$}\wh h \en
+\NOtes \zcharnote{-7}{$\hat{7}$}\wh i \en \xbar
+\NOtes \zcharnote{-7}{I}\zw {ceg} \en
+\NOtes \zcharnote{-7}{ii}\zw {dfh} \en
+\NOtes \zcharnote{-7}{iii}\zw {egi} \en
+\NOtes \zcharnote{-7}{IV}\zw {fhj} \en
+\NOtes \zcharnote{-7}{V}\zw {gik} \en
+\NOtes \zcharnote{-7}{vii}\zw {hjl} \en
+\NOtes \zcharnote{-7}{viii\degree}\zw {ikm} \en
+\zendextract
+\end{music}
+}
+
+\subfloat[C Minor Scale and Diatonic Chords][C Minor Scale]{
+\label{fig:subfig4}
+\begin{music}
+\parindent10mm
+\instrumentnumber{1}
+\setstaffs1{1}
+\nobarnumbers
+\startextract
+\NOtes \zcharnote{-7}{$\hat{1}$}\wh c \en
+\NOtes \zcharnote{-7}{$\hat{2}$}\wh d \en
+\NOtes \zcharnote{-7}{$\hat{3}$}\wh {_e} \en
+\NOtes \zcharnote{-7}{$\hat{4}$}\wh f \en
+\NOtes \zcharnote{-7}{$\hat{5}$}\wh g \en
+\NOtes \zcharnote{-7}{$\hat{6}$}\wh {_h} \en
+\NOtes \zcharnote{-7}{$\hat{7}$}\wh {_i} \en \bar
+\NOtes \zcharnote{-7}{i}\zw {c_eg} \en
+\NOtes \zcharnote{-7}{ii\degree}\zw {df_h} \en
+\NOtes \zcharnote{-7}{III}\zw {_eg_i} \en
+\NOtes \zcharnote{-7}{iv}\zw {f_hj} \en
+\NOtes \zcharnote{-7}{v}\zw {g_ik} \en
+\NOtes \zcharnote{-7}{VII}\zw {_hj_l} \en
+\NOtes \zcharnote{-7}{VIII}\zw {_ikm} \en
+\zendextract
+\end{music}
+}
+\caption{Diatonic Chords with Roman Numbering} 
+\end{figure}
+
+A chord progression is thus identified by a sequence of identifiers, eg, I $\rightarrow$ IV $\rightarrow$ V $\rightarrow$ I.  Of particular interest are chord progressions known as \emph{cadences}.
+These are chord progressions that sound to create a sense of \emph{resolution} and, as such, are usually used to signify the end of a phrase or a piece of music. There are four main types of cadences:
+\begin{itemize}
+\item \textbf{Authenic Cadence} (V $\rightarrow$ I): This cadence has a strong sense of resolution as it alternates between the dominant (tension) and the tonic (home). 
+\item \textbf{Half Cadence}: A half cadence refers to any cadence that ends of on V. Since it ends on the dominant, it has the weakest sense of resolution of all cadences and thus has a strong desire for continuation (towards a resolution). It is called a half cadence as its ending chord is half of the authentic cadence. 
+\item \textbf{Plagal Cadence} (IV $\rightarrow$ I): A cadence which involves the subdominant and the tonic. Since the subdominant is tonally less tense than the dominant, such a cadence has a weaker resolution than the authentic cadence. 
+\item \textbf{Deceptive or Interrupted Cadence} (V $\rightarrow$ vi): The deceptive cadence is one which gives the listener a suspended feeling as it is very close to the authentic cadence but does not ultimately resolve to the tonic. 
+\end{itemize}
+
+Another important aspect of harmony is that of \emph{consonance} and \emph{dissonance}. The difference between consonance and dissonance can vaguely be described as that which sounds ''good'' versus that which doesn't and, as such, is highly context dependant. Something that may sound dissonant in one culture could be consonant in another. One usually refers to consonance in relation to notes being played together (although one could talk about consonant rhythms and melodies). In western music, all perfect intervals (the octave, fifth and fourth) as well as the thirds and sixths (major and minor), all other intervals are considered dissonant. Though dissonance implies that something may not sound  ''good'', it plays a pivotal role in tension building within music with dissonances typically being resolved to consonances. 
+
+% add example of consonance 
+\section{Counterpoint}
+Counterpoint refers to the relation between different voices that are independent melodically yet come together harmonically to form a whole. The process of writing counterpoint is generally considered a difficult one as, for each melody, each note serves a dual purposes; melodically and harmonically. Species counterpoint is a form of \emph{strict} counterpoint, in which counterpoint on a given melody, or \emph{cantus firmus}, is created by following a series of rules.
+
+% add example of counterpoint 
+\begin{figure}[h!]
+\caption{Counterpoint}
+\begin{music}
+\parindent10mm
+\instrumentnumber{1}
+\setstaffs1{2}
+\startextract
+\NOtes \wh c |\wh j\en  
+\NOtes \wh{_e} |\wh g\en 
+\NOtes \wh f |\wh{_h}\en 
+\NOtes \wh d|\wh{i} \en 
+\NOtes \wh c|\wh{j} \en \Endpiece
+\zendextract
+\end{music}
+\label{fig:counterpoint}
+\end{figure}
+
+When discussing counterpoint, one usually refers to the resulting motion between two different voices. This motion can be characterized in 4 ways.
+\begin{itemize}
+\item \textbf{Parallel motion}: The voices move in a similar direction, mainting the same interval between notes.
+\item \textbf{Similar motion}: The voices is move in a similar direction, although the interval between notes changes. 
+\item \textbf{Contrary motion}: The voices move in exactly opposite directions. When one voice moves up, the other one moves down.
+\item \textbf{Oblique motion}: One voice moves while the other remains on the same note. 
+\end{itemize} 
+
+The following describe some of the most important rules used within species counterpoint: 
+
+\begin{itemize}
+\item Avoid unisons (except at beginning or end of the piece)
+\item Prioritise contrary motion
+\item Begin and end on perfect consonance (except for a fourth)
+\item Do not move in parallel fourths
+\item Do not move too much in parallel thirds and sixths
+\item Approach perfect consonances by oblique or contrary motion
+\item Intervals should not exceed more than a tenth
+\end{itemize}
+
+More rules are described for different \emph{species} of counterpoint. The above rules are applied for when the two melodies fall exactly one on top of the other. Other rules need to be taken into account when the rhythmic structure of the two voices differ. 
+
+\section{Imitation}
+In music, imitation refers to the repitition of a melody in a different voice in close successsion. Typically a voice will start with the melody, shortly followed by another voice playing the same melody and so on.
+The melody may be repeated as is, resulting in \emph{real} imitation, or it may be altered according to one or more transformations. These are as follows:
+\begin{itemize}
+\item \textbf{Inversion}: The intervals between notes are inverted. The inversion $i'$ of an interval $i$ can be calculates as follows: $i' = 12 - i$. Therefore if an interval consists of a perfect fifth $i$ = 7, then the inverted interval is $i' = 5$, a perfect fourth. 
+\item \textbf{Retrograde}: The melody is played backwards. The rhythmic structure of the original melody can be maintained or it can also be transformed so that each original note maintains their duration.
+\item \textbf{Augmentation}: Increasing the value of the duration of all the notes in original melody by a constant factor. 
+\item \textbf{Diminution}: Reducing the value of the duration of notes by a constant factor. 
+\end{itemize}
+
+Many different musical compositional techniques exists which make extensive use of imitative counterpoint. These include the \emph{ricercar}, the \emph{canon} and the \emph{fugue}.
+
+\end{document}

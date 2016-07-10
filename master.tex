@@ -1,0 +1,97 @@
+
+
+% =============================
+% Front matter
+\documentclass{kecsmstr}
+\usepackage{subfiles}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx} 
+\usepackage{musixtex}
+\usepackage{tikz}
+\usepackage{arev}
+%\usepackage{fontspec}
+\usepackage{lilyglyphs}
+\usepackage{verbatim}
+\usepackage{arcs}
+\usepackage{gensymb}
+\usepackage[lofdepth,lotdepth]{subfig}
+
+\usepackage{unicode-math}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\Umathchardef\xnot="3 \symoperators "0338
+\AtBeginDocument{\renewcommand\not[1]{#1\xnot}
+\renewcommand{\notin}{\in\xnot}}
+\newcommand{\defeq}{\mathrel{\mathop:}=}
+
+\title{Nested Monte Carlo Search with Markov Sampling for First Species Counterpoint}
+\author{Roberto Noorduijn Londono}
+
+%select one:
+%\thesistype{Master of Science of Knowledge Engineering}
+\thesistype{Master of Science of Artificial Intelligence}
+
+\thesisdate{July 2016} \thesisnumber{00-00}
+
+%Thesiscommittee: use \\ to separate members
+\committee{Prof.~dr.~????\\
+           Prof.~dr.~???? \\
+           Dr.~ir. ???? \\
+           Dr.~?????}
+% ================================
+
+
+\begin{document}
+
+% leave this in place! =============
+\makeheaders \pagenumbering{roman} \maketitle \setcounter{page}{2}
+\emptypage
+% ================
+
+\chapterx{Preface} \emptypage
+
+\chapterx{Summary} \emptypage
+
+\tableofcontents  \emptypage \pagenumbering{arabic}
+
+\chapter{Introduction}
+
+\include{introduction}
+
+\chapter{Music Theory}
+
+\include{backgroundmusictheory}
+
+\chapter{Search}
+\include{montecarlosearch}
+\include{markovchains}
+\include{geneticalgorithms}
+\chapter{Related work}
+
+\chapter{Experiments}
+
+\chapter{Results}
+
+\chapter{Conclusions}
+
+\bibliography{bib} \emptypage
+
+\appendix
+
+\appchapter{Algorithms}
+
+\appchapter{Detailed results}
+
+
+\chapterx{Samenvatting} \emptypage
+
+% this can be a translation of the abstract
+
+\end{document}

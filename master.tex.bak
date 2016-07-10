@@ -1,0 +1,116 @@
+
+
+% =============================
+% Front matter
+\documentclass{kecsmstr}
+\title{KECS Master Thesis Format for LaTeX}
+\author{Jeroen Donkers}
+
+%select one:
+%\thesistype{Master of Science of Knowledge Engineering}
+\thesistype{Master of Science of Artificial Intelligence}
+
+\thesisdate{March 2006} \thesisnumber{00-00}
+
+%Thesiscommittee: use \\ to separate members
+\committee{Prof.~dr.~????\\
+           Prof.~dr.~???? \\
+           Dr.~ir. ???? \\
+           Dr.~?????}
+% ================================
+
+
+\begin{document}
+
+% leave this in place! =============
+\makeheaders \pagenumbering{roman} \maketitle \setcounter{page}{2}
+\emptypage
+% ================
+
+\chapterx{Preface} \emptypage
+
+\chapterx{Summary} \emptypage
+
+\tableofcontents  \emptypage \pagenumbering{arabic}
+
+\chapter{introduction}
+
+\begin{chapterintro}
+You can use this chapterintro environment to start each chapter
+with an introductory section. This introduction is set in a
+different font type and forms a nice contrast to the rest of the
+text.
+\end{chapterintro}
+
+\begin{chaptercontents}
+Introduction --- How to work with citations.
+\end{chaptercontents}
+
+\section{Citations}
+
+You need the \verb!ikatcite.sty! and \verb!ikatcite.bst! files in
+order to use citations.
+
+Do not use the standard \verb!\cite! command to enter citations.
+Use the following commands instead. \verb!\citeaby{bosch89}!
+renders `Van den Bosch {\em et~al}. (1989)';
+\verb!\citebay{bosch89}! renders `(Van den Bosch {\em et~al}.,
+1989)'; \verb!\citeay{bosch89}! renders `Van den Bosch {\em
+et~al}., 1989'; and \verb!\citeby{bosch89}! renders `(1989)'
+\verb!\citey{bosch89}! renders `1989'.  So, "a" stands for
+"authors", "y" stands for year, and "b" stands for "brackets".
+
+The citations are provided with a citation reference. This is a
+list of page numbers at every entry in the References that
+indicates where the reference is used. An example citation is:
+\citeaby{zer13}.
+
+\section{Source}
+
+Below you find the latex source for the front matter in this
+example thesis:
+
+\begin{verbatim}
+
+\documentclass{kecsmstr}
+
+\title{KECS Master Thesis Format for LaTeX}
+\author{Jeroen Donkers}
+
+%select one:
+%\thesistype{Master of Science of Knowledge Engineering}
+\thesistype{Master of Science of Artificial Intelligence}
+
+\thesisdate{March 2006} \thesisnumber{00-00}
+
+%Thesiscommittee: use \\ to separate members
+\committee{Prof.~dr.~H.J. van den Herik \\
+           Prof.~dr.~E.O. Postma \\
+           Dr.~ir. J.W.H.M. Uiterwijk \\
+           Dr.~H.H.L.M. Donkers}
+
+\end{verbatim}
+
+
+\chapter{Related work}
+
+\chapter{Experiments}
+
+\chapter{Results}
+
+\chapter{Conclusions}
+
+\bibliography{thesis} \emptypage
+
+\appendix
+
+\appchapter{Algorithms}
+
+\appchapter{Detailed results}
+
+
+\chapterx{Samenvatting} \emptypage
+
+% this can be a translation of the abstract
+
+\end{document}

@@ -1,0 +1,74 @@
+
+
+\documentclass[master.tex]{subfiles} % use larger type; default would be 10pt
+\newtheorem*{ps}{Problem Statement}
+\newtheorem{researchquestion}{Research Question}
+\begin{document}
+\section{AI and Music}
+
+The automation of Musical Composition is an endeavor that has intrigued composers for many years. As far back as the 18th century, many attempts were made at making so-called \emph{musical games}. The purpose of these games was to use random events, such as the rolling of a die, to completely determine the compositional process. The most popular of these musical games is one attributed to Mozart, published in 1792 \citeaby{alpern1995techniques}. The game consisted of using die to determine the order of various precomposed sections of music. Although the structure of the final piece would be determined through random events, the actual aesthetic was fully determined by the composer by creating musically pleasing sections that would sound good no matter which order they were played in. That said, such musical games, though trivial, demonstrate the first foray into the field of Algorithmic Composition (AC). 
+
+The term Algorithm Composition refers to the use of algorithmic procedures in order to create music such that the creative involvement from part of the human is minimized. As the years past, many examples chronicled the development of various AC techniques. For example, the serialist movement, a departure from the traditional stances on harmony and melody, gave rise to the twelve tone method as developed by Arnold Schoenberg \citebay{perle1972serial}. A method which used various rules in order to create entirely \emph{atonal} pieces of music.
+
+Unsurprisingly, as computers have advanced, they have allowed for an incredibly wide range of new capabilities within the field of AC. Initially, these methods were predominantly focused around hard coding rules and functions that would determine the structure and content of various pieces. Although these methods become more and more sophisticated, the creative process underlying the piece was still attributed to the formalization of the rules and parameters used. The programmer who determined the rules was still essentially the composer of the piece. With the development of various techniques from Artificial Intelligence (AI), the difference between programmer and composer has become more distinct. This distinction arises from the fact that the programmer does not hard code the rules and creative process but instead allows the program to make the stylistic choices on its own. These advancements have allowed the field of AC to become imbedded within that of Computational Creativity (CC), i.e, the use of computation techniques and algorithms for the purpose of emulating creativity. A wide variety of ideas and techniques have already shared many successes within the domain of musical composition.
+
+\section{Combinatorial Optimization and Counterpoint}
+A completed composition can abstractly be seen as the solution to a \emph{combinatorial optimization} problem \citebay{herremans2012composing}. In this regard, the act of composing a piece can be seen as similar to that of writing down a series of \emph{musical events} such that the resulting music maximizes some \emph{objective function}.  Of course, true composition is not so simple. With music, it is difficult to define such an objective function so that the aesthetic quality of a piece can effectively be quantified. While some general rules and heuristics do exist for various styles of music, they tend to not be strict rules and as such are generally suggestions based on experience. 
+
+Species counterpoint is an example of a musical style with strict and rigorous rules. These formal rules allows the possibility of determining an objective function. Generally speaking, counterpoint refers to the use of independent vocal melodies, which are combined to form a harmonious whole. Although when discussing the \emph{style of counterpoint} one is instead referring to the set of principles that were amassed and developed during the Renaissance, in relation to the art of voice polyphony. These principles were then formalized into sets of rules, such that the style of counterpoint could easily be taught by following said rules. The most complete collection of these rules was published by J.J. Fux in 1725 in his \emph{Gradus ad Parnassum}. In here, he describes different \emph{species} of counterpoint and corresponding concise rules to help aid the composition thereof.  
+
+Due to their rigorous formulation, these rules have been implemented and used by many different optimization algorithms in order to determine good solutions to Fuxian counterpoint. An early example is Schottstaedt's approach which made use of search and heuristics derived from these rules \citebay{shottstaedt1989automatic}. However, due to the almost infinite amount of possible melodies one could create - without imposing any restrictions, the majority of recent approaches have focused on stochastic methods. One such example is evolutionary algorithms as shown in \citeay{acevedo2004fugue} and Jacobs (2012). Such methods have proven to be quite successful in generating novel fugues given a starting melody or \emph{cantus firmus}. These approaches are examples of the \emph{generate and test} methods \citebay{togelius2011search}. Pieces are generated, and then tested by using either human evaluation or direct evaluation derived from similar rules as the ones explained above.
+Another approach which seems to have a stronger theoretical foundation, is that of reinforcement learning using SARSA (State-Action-Reward-State-Action) \citebay{phon2009generating}. The idea behind this is to model the act of composing music as a Markov Decision Process. States are represented as pitches and the actions are represented as intervals. The rewards of the models are then derived from evaluation criteria which rewards consonant sounds and pitch intervals and penalizes dissonance.  These techniques have all had reasonable success, although they still far short of being considered similar to a human composed piece of music. 
+The method proposed by \citeay{chen2001creating} combines both evolutionary algorithms and recurrent neural networks in order to generate new melodies. Melodies were then evaluated using tonal and rhythmic rules, such as tonal and rhythmic diversity. 
+In \citebay{collins2011chopin} new music is generated by using Markov Chains analysed from existing compositions. For example, pitch frequencies and their transitions would be recorded and incorporated into a Markov Chain. New pieces would then be made by sampling from this Markov Chain. 
+
+\section{Problem Statement and Research Questions}
+Search based methods such as Monte Carlo Search (MCS) have not generally been applied to the task of music generation. The greater focus of methods have relied on stochastic methods such as Markov Chains and Evolutionary Algorithms. Since the task of composing is generally not a random process, but rather can be seen as a more informed (heuristic) search, it appears as though search based methods should be feasible for this problem. Such approaches have been applied with best-first search methods \citebay{shottstaedt1989automatic}, although due to the intractability of the problem, they have not been as successful as the stochastic methods. Based on their previous successes in similar domains, MCS based methods are therefore expected to produce pieces of equal if not greater quality then those of the more popular stochastic methods. The problem statement of this thesis is thus: 
+
+\begin{ps}
+Are Monte Carlo Search based approaches viable to the domain of Automated Musical Composition?
+\end{ps}
+Thus the purpose of the thesis will be to investigate how well MCS based techniques fare compared to the state of the art techniques currently used. In particular, these techniques will be applied in order to create music in the style of First Species Counterpoint. This problem statement will be addressed by answering the following research questions. 
+
+\begin{researchquestion}
+How do Monte Carlo based approaches compare to Genetic Algorithms within this domain? 
+\end{researchquestion}
+
+
+
+\begin{researchquestion}
+What is a suitable representation for music within the context of counterpoint?
+\end{researchquestion} 
+
+In searching the space of counterpoint efficiently, it is necessary to have a concise representation in order to represent music as points within a specific state-space. Such a representation will effectively require a formalization of important musical concepts. In representing music, there exists a spectrum between direct  or explicit representations and more indirect or implicit representations. An example of a direct representation would be a collection of MIDI information. That is, the pitch, duration, velocity (loudness) and attack time of a particular music event (e.g. a note played on a piano). A slightly more implicit approach would be to only model aspects such as relative pitches between notes, consonance and chord progression. An example of a representation in the more extreme implicit end of the spectrum would be that described by the \emph{Generative Theory of Tonal Music}, a grammatical hierarchical approach to music representation. This representation deals more with the cognitive aspects of music theory and thus is generally more difficult to implement. \citebay{tojo2013computational} describe a method for automatically analyzing music according to this theory. It is expected that an approach that lies somewhere in between would be the most appropriate as it is necessary to have a more direct representation in order to simplify the task of searching, but also it would be necessary to encode more information in order to represent more complex relationships inherent in the music. 
+
+\begin{researchquestion}
+How can the contrapuntal pieces be evaluated?
+\end{researchquestion}
+
+As discussed earlier, the evaluation of music is difficult problem. The main approach in this thesis will be to take the qualitative rules of first species counterpoint and turn them in quantitative measures.  Other approaches to determining a feasible evaluation will also be researched. These include using features learned from a corpus of pre-existing music and seeing how closely the generated music resembles music from the corpus. 
+
+Since the actual fitness of a peice of music tends to be a subjective matter, the results will have to be evaluated using human participants. To this extent the various results from the different techniques and evaluation functions will be used in a survey carried out on a number of people with varying musical maturity. The purpose of such a survey will thus be to truly see how well the different pieces sound. The results of this survey will also be able to answer another research question: 
+
+\begin{researchquestion}
+Using just the rules derived from first species counterpoint, how good are the pieces generated?
+\end{researchquestion}
+
+Due to species counterpoint being mainly a pedagogical tool that was created in order to aid students in the understanding of contrapuntal composition, it has never been a standard under which music is actually composed. The main reason for this is the fact it is very difficult to ensure that all the rules have been satisfied. It is also especially difficult for even an expert, to be able to listen to a piece of species counterpoint and determine whether it satisfies all the rules. Given that an appropriate formalization of the rules have been determined, it is expected that a piece of music that obtains the highest fitness value from the evaluation function should represent the best piece of species counterpoint. Therefore, under the previous assumption, the survey test will serve to reveal whether or not these rules do in fact create aesthetically pleasing music. 
+
+\begin{researchquestion}
+Can Markov Chains be used in order to improve the MCS methods?
+\end{researchquestion}
+
+The purpose of this thesis is to investigate different techniques from AI applied to the problem of \emph{first species counterpoint}. In particular, a new method based on Nested Monte Carlo Search (NCMS) will be proposed and compared to existing techniques from the literature. This problem will be addressed by describing the exact rules that will be used for evaluation, discussing the representation and then setting up the proposed algorithm 
+
+\section{Outline}
+
+
+
+
+
+
+
+
+\end{document}
